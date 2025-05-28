@@ -1,0 +1,5 @@
+##Day 01 of IDC 30daysopyhton
+#program to print hello world along woth you name-:
+
+message="Hello,World!"
+  print(message,"My good name is Priyanshi")
