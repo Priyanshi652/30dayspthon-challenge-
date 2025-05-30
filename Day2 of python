@@ -1,0 +1,37 @@
+Day 0️⃣2️⃣:Variable and Data Types
+
+Calcualting the phone screen area to know the compatiblity and the enjoy the best view
+
+
+def calculate_screen_area(length,width):
+    
+    #checks if number is possitive or negative
+    if length<=0 or width<=0:
+        print("❌Your length and width can't have negative dimensions!!")
+        print("please enter possitive number")
+        return
+    
+    Area=length*width
+    
+    #prints the dimensions
+    print("\n So,you entered your dimesions as:⬇️")
+    print(f"👉🏻The length of your screen is: {length} (in inches)")
+    print(f"👉🏻The width of your screen is: {width} (in inches)")
+
+
+    print(f"\n🔎 Wohoo! Your mighty screen area is:{Area:.2f} inch²")
+    
+    print("\n Boom💥! You just measured your screen like a pro. Enjoy that crisp display👍🏻!")
+print("📲CALCULATING THE AREA OF PHONE SCREEN TO MAKE SURE THE SUITABLITY AND BEST FIT IN TERMS OF SIZE📲")
+
+try:
+    length=float(input("▶️Enter the length of your screen please:"))
+    width=float(input("▶️Enter the width of your screen please:"))
+    
+    #calling the above function made
+    calculate_screen_area(length,width)
+    
+except ValueError:
+    print("Sorry,it doesn't seem to be a number!please enter a valid number🚫")
+
+    
