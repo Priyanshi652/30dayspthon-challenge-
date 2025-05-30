@@ -1,0 +1,52 @@
+Day 0️⃣3️⃣: Lists, Tuples, and Dictionaries
+
+Created an bakery inventory system tracking items and quantities with a dictionary
+
+# -----------------------------------------------
+# 🍞 WELCOME TO THE BAKERY INVENTORY MANAGEMENT SYSTEM
+# -----------------------------------------------
+# A simple Python script to track bakery items and their quantities.
+# This system allows adding new items, selling existing items, and 
+# viewing the current inventory.
+# -----------------------------------------------
+
+# 🍞 Simple Bakery Inventory Tracker 🍩
+
+# Initial stock using a dictionary
+inventory = {
+    "Cupcake": 18,
+    "Choco pastry": 16,
+    "Donut": 10
+}
+
+# 🛍️ Sales as a list of (item, quantity)
+sales = [("Cupcake", 4), ("Donut", 2), ("Bread Loaf", 1)]
+
+print("\n👩‍🍳A warm Welcome to EatSweet Bakery!")
+print("\n Let's stock up the fresh bakery itmes!")
+
+# Print initial inventory before sales
+print("\n📦 Initial Inventory Stocked:")
+print("-" * 40)
+for item, qty in inventory.items():
+    print(f"🍰 {item:<15} : {qty} (in stock)")
+print("-" * 40)
+
+# Process sales
+for item, qty in sales:
+    if item in inventory and inventory[item] >= qty:
+        inventory[item] -= qty
+        print(f"💸 Sold {qty}x {item}")
+    else:
+        print(f"❌ Cannot sell {qty}x {item} (sorry it's out of stock!!)")
+
+# 📋 Show final inventory after sales
+print("\n📋 The Final Bakery Inventory")
+print("-" * 40)
+for item, qty in inventory.items():
+    print(f"🍰 {item:<15} : {qty} (in stock)")
+
+
+print("=" * 50)
+print("✅Thankyou for using EatSweet Bakery Inventory Tracker!!")
+print("=" * 50)
