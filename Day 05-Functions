@@ -1,0 +1,28 @@
+Day 0️⃣5️⃣: Functions
+
+🎯 Challenge
+- Write a function that computes the sum and average of a list of numbers
+
+#definig a function
+def sum_and_average(list):
+    print("=" * 80)
+    print("🔍 Calculating the sum and average of your given numbers-:")
+    print("=" * 80)
+
+    #checking if the list of numbers are empty or not
+    if list == []:
+        print("\n🚫oops! You gave me an empty list of numbers!\n")
+        return 0
+    else:
+        total = sum({number for number in list})
+        total_number_count = len(list)
+        average = total/total_number_count
+    
+    print(f"\n ✅The total length of list is : {total_number_count} \n")
+    print(f"🧮 The sum of your numbers is: {total}")
+    print(f"📊 The average is: {average:.2f}")
+    
+    return total,average
+
+user_input = [12,4,13,29,71,8]
+total,avg = sum_and_average(user_input)
