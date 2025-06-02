@@ -1,0 +1,41 @@
+Day 0️⃣6️⃣: Modules and Packages
+
+🎯 Challenge
+- Generate a random 8-character password
+
+import random
+
+print("="*60)
+print("🔐 Welcome to Your Friendly Random Password Generator")
+print("="*60)
+
+# Define character sets
+letters="abcdefghijklmnopqrstuvwxyz"
+uppercase_letters=letters.upper()
+digits="0123456789"
+symbols = "!@#$%^&*()_+-=[]{}|;:,.<>?/"
+
+#Combine all character groups
+combined=letters+uppercase_letters+digits+symbols
+
+length=8
+print("\n🔧 Generating your password...\n")
+
+password=[]
+
+for i in range(length):
+    character=random.choice(combined)
+    password.append(character)
+    print(f"   🔹 Letter {i+1}: {character}")
+    
+    #Join the characters into a final password
+    random_password="".join(password)
+    
+print("-"*60)
+print("✅ Your ultra secure password is:", random_password)
+print("-"*60)
+print("💡 Tip: Keep it private and safe!")
+    
+    
+    
+
