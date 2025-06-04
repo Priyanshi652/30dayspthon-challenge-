@@ -1,0 +1,52 @@
+Day 0️⃣7️⃣: File Handling
+
+🗒️ Topics
+- Reading/writing files, handling text and CSV
+
+
+🎯 Challenge
+- Count word frequencies in a text file
+
+
+# 📂 Ask the user to enter the filename (it should be in the same folder)
+file_name = input('📂 Enter the file name: ')
+try:
+    # 🗂️ Try opening the file
+    open_file = open(file_name)
+    
+    # 🧮 Create an empty dictionary to store word counts
+    counts = dict()
+    
+    # 📄 Go through each line in the file
+    for line in open_file:
+        # ✂️ Split the line into individual words
+        words = line.split()
+        
+        # 🔁 Count each word
+        for word in words:
+            if word in counts:
+                counts[word] += 1  # ➕ Add 1 if the word already exists
+            else:
+                counts[word] = 1   # 🆕 If new word, set count to 1
+
+    # 📊 Print a nicely formatted report
+    print("=" * 50)
+    print("📊 Word Frequency Report:")
+    print("=" * 50)
+    print("\n")
+    
+    print("Here’s the count of each word found in your file:")
+    print("=" * 50)
+    
+    # 📌 Display each word and how many times it appeared
+    for word in counts:
+        print(f"{word} → {counts[word]}")   
+    
+    print("\n")    
+    print("=" * 50)
+    print("🎉 Analysis complete! Thanks for checking your word counts.")
+    print("=" * 50)
+
+# 🚫 Handle the case where the file couldn't be opened
+except:
+    print('❌ File cannot be opened:', file_name)
