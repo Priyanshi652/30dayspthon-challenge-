@@ -1,0 +1,41 @@
+Day 0️⃣8️⃣: Object-Oriented Programming (Part 1)
+
+🗒️ Topics
+- Classes, objects, methods, attributes
+
+🎯 Challenge
+- Create a Car class with attributes and a display method
+
+
+# 🚗 Let's build a cool Car class in Python!
+# This class will store basic details about a car and print them in a fun, stylish way.
+
+class Car:
+    def __init__(self, model, brand, year, fuel_capacity, mileage):
+        # When we create a new car, we want to remember its basic details
+        self.model = model               
+        self.brand = brand              
+        self.year = year               
+        self.fuel_capacity = fuel_capacity  
+        self.mileage = mileage           
+
+        print(f"\n🎉 A New Car Has Been Created! 🎉")
+
+    def display_attributes(self):
+        # This method will print all the car details in a stylish way
+        print("\n🚘✨ Here Are the Car's Super Specs! ✨🚘")
+        print("========================================")
+        print(f"🆔  Brand            : {self.brand}")      
+        print(f"🏷️  Model            : {self.model}")        
+        print(f"📅  Year             : {self.year}")         
+        print(f"⛽  Fuel Capacity    : {self.fuel_capacity} Liters")  
+        print(f"📏  Mileage          : {self.mileage} km/l")         
+        print("========================================")
+        print("🔧 Ready to hit the road in style! 🔧")
+
+
+# 🔧 Time to create our car! Let's give it some values.
+my_car = Car("Fortuner Legender", "Toyota", 2024, 80, 14)
+
+# 🖨️ Now let's display all those cool specs we just set.
+my_car.display_attributes()
