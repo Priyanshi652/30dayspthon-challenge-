@@ -1,0 +1,52 @@
+Day 0️⃣9️⃣: Object-Oriented Programming (Part 2)
+
+🗒️ Topics
+- Topics: Inheritance, polymorphism
+
+🎯 Challenge
+- Extend Car into an ElectricCar subclass with battery capacity
+
+class Car: #parent class 
+    def __init__(self, model, brand, year, fuel_capacity, mileage):
+        self.model = model
+        self.brand = brand
+        self.year = year
+        self.fuel_capacity = fuel_capacity
+        self.mileage = mileage
+
+    def display_attributes(self):
+        print("\n🚘✨ Car Specifications! ✨🚘")
+        print("====================================")
+        print(f"🏷️ Model          : {self.model} ")
+        print(f"🆔 Brand          : {self.brand} ")
+        print(f"📅 Year           : {self.year} ")
+        print(f"⛽ Fuel Capacity  : {self.fuel_capacity} L ")
+        print(f"📏 Mileage        : {self.mileage} km/l ")
+       
+
+
+class ElectricCar(Car): # child class
+    def __init__(self, model, brand, year, fuel_capacity, mileage, battery_capacity):
+        
+        # Initialize common attributes via Car's constructor
+        Car.__init__(self, model, brand, year, fuel_capacity, mileage)
+        
+        # Add battery capacity attribute
+        self.battery_capacity = battery_capacity
+        print("\n🎉 A New Car Has Been Created! 🎉")
+
+    def display_attributes(self):
+        
+        # Reuse Car's display method for common attributes
+        Car.display_attributes(self)
+        
+        # Add battery info in the same print flow
+        print(f"🔋 Battery Capacity : {self.battery_capacity} kWh 🔌")
+        print("====================================")
+        print("\n🔧 Ready to hit the road and make memories! 🛤️\n")
+        
+        print("🌱 Cruising clean and green! Let's save the planet one mile at a time. 🌍🚀")
+
+
+e_v = ElectricCar("Model 3", "Tesla", 2024, 0, 6.5, 85)
+e_v.display_attributes()
