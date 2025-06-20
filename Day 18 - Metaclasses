@@ -1,0 +1,32 @@
+# 🛠️ Custom metaclass to control how classes are built
+
+class meta_class(type):
+    def __new__(cls, name, bases, dct):
+        print(f"\n🔧 Creating class: {name}")
+
+        for method in dct:
+        # ⚠️ If it's NOT a built-in method like __init__
+            # AND doesn't start with 'do_' or 'task_', raise an error
+            
+            if not method.startswith("__") and not (method.startswith("task_")):
+                raise TypeError(f"❌ incorrect Method '{method}' as it must start with 'do_' or 'task_'")
+        
+        # 🔁 Now create the class as usual
+        return super().__new__(cls, name, bases, dct)
+
+# 🧪 Let's test our metaclass with a class that follows the rule
+class My_Class(metaclass=meta_class):
+    def __init__(self):
+        print("👋 I’m ready!")
+
+    def task_debug(self):
+        print("✅ Method is correct")
+
+print("-"*80)
+print("🧪 Creating object of the class that uses metaclass...")
+print("-"*80)
+
+obj = My_Class()
+
+print("📞 Calling do_intro method...")
+obj.task_debug()
