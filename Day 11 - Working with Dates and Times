@@ -1,0 +1,22 @@
+from datetime import datetime
+
+print("📅 Let's find out how many days are between two dates!")
+print("--------------------------------------------------")
+print("Please enter both dates in this format: YYYY-MM-DD (e.g., 2025-06-07)")
+print("--------------------------------------------------")
+
+date1 = input("📝 Enter the first date in format(Y-m-d): ")
+date2 = input("📝 Enter the second date(Y-m-d): ")
+
+# Convert strings to date objects
+date1 = datetime.strptime(date1, "%Y-%m-%d").date()
+date2 = datetime.strptime(date2, "%Y-%m-%d").date()
+
+# Calculate the absolute difference in days
+absolute_difference = abs(date2 - date1)
+no_of_days=absolute_difference.days
+
+print(f"🎉 The  dates you enterned -:\n{date1} \n{date2}")
+print(f"🎉 The number of days between {date1} and {date2} is: {no_of_days} days!")
+print("--------------------------------------------------")
+print("Thanks for using the Days Calculator! 😊")
