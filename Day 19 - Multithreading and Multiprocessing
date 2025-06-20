@@ -1,0 +1,34 @@
+import threading
+import time
+
+print("\n" + "="*50)
+print("🧵 MULTI-THREADING FILE DOWNLOAD SIMULATION")
+print("="*50 + "\n")
+
+#  List of files we want to "download"
+files = ["my_data", "thread", "num_data"]
+
+#  This function downloading a file
+def download(file):
+    print(f"📥 [DOWNLOADING STARTED] → {file}")
+    time.sleep(2)  # it takes 2 seconds to download
+    print(f"✅ [DOWNLOADING COMPLETED] → {file}")
+
+print("="*50+"")
+print("🔧 [STEP 1] Creating threads for each file...")
+file_threads = [threading.Thread(target=download, args=(file,)) for file in files]
+
+print("🚀 [STEP 2] Starting all downloads...")
+print("="*50 + "\n")
+
+for t in file_threads:
+    t.start()
+
+print("="*50)
+print("⏳ [STEP 3] Waiting for all downloads to complete...")
+print("="*50)
+
+for t in file_threads:
+    t.join()
+
+print("\n🥳 All files have been downloaded successfully!")
