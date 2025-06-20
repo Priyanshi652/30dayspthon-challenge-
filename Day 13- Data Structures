@@ -1,0 +1,70 @@
+# 🚀 Building my own stack from scratch — step by step!
+
+class MyStack:
+    def __init__(self):
+        # Starting fresh with an empty container for my stack
+        self.stack_container = []
+        print("✨ Stack is here — empty and ready!")
+        print("-"*80)
+
+    def push(self, value):
+        # Time to add something on top of the stack!
+        self.stack_container.append(value)
+        print(f"🧱 Pushed '{value}' onto the stack. Stack size now: {len(self.stack_container)}")
+
+    def pop(self):
+        # Let's take off the top item — hope it's what I want!
+        if len(self.stack_container) == 0:
+            print("⚠️ Uh-oh! Stack is empty — nothing to pop!")
+            return None
+        removed = self.stack_container.pop()
+        print(f"🗑️ Popped '{removed}' from the stack. Stack size now: {len(self.stack_container)}")
+        return removed
+
+    def peek(self):
+        # Sneak a peek at the top without removing it — shhh!
+        if len(self.stack_container) == 0:
+            print("👀 Stack is empty — nothing to peek at.")
+            return None
+        print(f"👆 Top item is '{self.stack_container[-1]}'")
+        return self.stack_container[-1]
+
+    def is_empty(self):
+        # Quick check — is my stack still empty?
+        empty = len(self.stack_container) == 0
+        print(f"🔍 Is stack empty? {'Yes' if empty else 'No'}")
+        return empty
+
+    def show_stack(self):
+        # Show current stack from top to bottom!
+        if self.stack_container:
+            print("(top to bottom):\n")
+            for item in reversed(self.stack_container):
+                print(item)
+        else:
+            print("Stack is empty.")
+
+# 🧪 Time to play with my stack!
+
+my_stack = MyStack()
+
+print("\n✨ Let's push some things onto our stack")
+my_stack.push("Python")
+my_stack.push("DSA")
+my_stack.push("Stack")
+
+print("\n🔍 Here's what the stack looks like now-:")
+my_stack.show_stack()
+
+print("-"*80)
+print("\n👀 What's on top? Let's peek-:")
+my_stack.peek()
+
+print("\n🗑️ Let's pop the top item off-:")
+my_stack.pop()
+
+print("\n📦 And now, the stack after popping-:")
+my_stack.show_stack()
+
+print("\n🔍 Final check-:")
+my_stack.is_empty()
