@@ -1,0 +1,12 @@
+def fibo_series(num_range): 
+    a, b = 0, 1
+    print("🚀 Let's print the first 50 Fibonacci numbers!\n")
+
+    for _ in range(num_range):
+        yield a   # Yield the current value of 'a' 
+        a, b = b, a + b  # Update 'a' and 'b' to the next two numbers in the series
+
+
+for i in fibo_series(10): # calling the above fibo_series function
+    print(f"🔹 {i}")
+print("\n✅ Fibonacci journey complete! You’ve just seen how powerful generators are. 🔁✨")
