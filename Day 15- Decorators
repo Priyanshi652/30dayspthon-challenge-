@@ -1,0 +1,33 @@
+import time  # We’ll use this to track how long the function takes
+
+# A decorator that tells us how long a function took to run
+def log_function(func):
+    # a "wrapper" around your function
+    def wrapper():
+        print(f"\n🔁 Starting '{func.__name__}'...")
+
+        # Start the timer
+        start = time.time()
+
+        # Run the original function
+        func()
+
+        # Stop the timer
+        end = time.time()
+
+        # Calculate and print the time taken
+        duration = end - start
+        print(f"✅ Finished '{func.__name__}' in {duration:.2f} seconds.\n")
+
+    # Return the wrapped version of the function
+    return wrapper
+
+
+@log_function  # using decorator
+def some_work():
+    print("Doing some work...")
+    time.sleep(6.5)  # a delay
+    print("Work done!")
+
+# Run the function
+some_work()
