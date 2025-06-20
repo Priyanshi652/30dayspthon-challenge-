@@ -1,0 +1,33 @@
+# 👮 Step 1: Define a safe, reusable context manager for file handling
+class SafeFile:
+    def __init__(self, filename, mode):
+        # Store filename and mode for use in __enter__
+        self.filename = filename
+        self.mode = mode
+
+    def __enter__(self):
+        # Open the file when entering the 'with' block
+        print(f"📂 Opening file: '{self.filename}' in mode '{self.mode}'..")
+        try:
+            self.file = open(self.filename, self.mode)
+            print("✅ File opened successfully!")
+            return self.file
+        except Exception as e:
+            print("-"*80)
+            print(f"❌ Oops! Couldn't open the file: {e}\n")
+            return None
+
+    def __exit__(self, exc_type, exc_val, exc_tb):
+        # Close the file when exiting the 'with' block
+        self.file.close()
+        print("-"*80)
+        print(f"📁 File '{self.filename}' closed safely. 🚪")
+
+# 📖 Step 3: Use the SafeFile context manager to read the file
+with SafeFile("my_data.txt", "r") as f:
+    if f:
+        print("-"*80)
+        print(f"📖 File content:\n")
+        print(f.read())
+    else:
+        print("⚠️ Skipping read — file doesn't exist or couldn't be opened.\n")
