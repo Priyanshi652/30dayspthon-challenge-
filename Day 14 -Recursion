@@ -1,0 +1,23 @@
+def factorial(n):
+    # Check for negative input
+    if n < 0:
+        print("❌ Factorial is not defined for negative numbers.")
+        return None
+
+    # Base case
+    if n == 0 or n == 1:
+        print(f"🧠This is Base case : factorial({n}) = 1")
+        return 1
+
+    # Print the current step before the recursive call
+
+    # Recursive call
+    result = n * factorial(n - 1)
+    return result
+
+    # Print the result after the recursion returns
+print(f"🔁 Finding the factorial of a number by recursion-:")
+print("-"*80)
+print(f"✅ lets calculate factorial of  is 8:")
+print("-"*80)
+print(f"✅ Result of factorial is : {factorial(8)}")
