@@ -1,0 +1,24 @@
+numbers = []  # We'll store all the valid numbers here
+
+try:
+    with open('num_file.txt', 'r') as file:
+        print("=" * 80)
+        print("📂 Reading numbers from the file...")
+        print("=" * 80)
+        
+        for num in file:
+            try:
+                # Try to convert the line into a number and add it to the list
+                numbers.append(int(num))
+            except ValueError:
+                # If it's not a number, let the user know we're skipping it
+                print(f"\n⚠️ Skipped invalid entry: {num.strip()}")
+                print("-" * 80)
+
+                
+except FileNotFoundError:
+    # If the file doesn't exist, inform the user
+    print("❌ File not found. Please make sure 'numbers.txt' exists.")
+
+# Show the final list of valid numbers
+print("\n✅ All valid integer numbers collected:", numbers)
